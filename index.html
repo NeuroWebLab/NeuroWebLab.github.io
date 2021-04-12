@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+<!--
+    WARNING! Make sure that you match all Quasar related
+    tags to the same version! (Below it's "@1.15.8")
+  -->
+
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet" type="text/css">
+    <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@^4.0.0/animate.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/quasar@1.15.8/dist/quasar.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/@quasar/quasar-ui-qflashcard@1.0.1/dist/index.min.css" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+
+    <!-- primary (used): dark grey; secondary (used for cards): #333 ( no more the greenish-blue-turquoise '#26A69A'); accent (used): silver-blue '#668fa6';
+    positive: flashy green; negative: dark red; info: intense light blue; warning: ocker -->
+    <script>
+    window.quasarConfig = {
+      brand: {
+        primary: '#222',
+        secondary: '#333',
+        accent: '#EEEEEE',
+  
+        dark: '#222',
+  
+        positive: '#21BA45',
+        negative: '#C10015',
+        info: '#31CCEC',
+        warning: '#F2C037'
+      }
+    }
+    </script>
+
+    <div id="q-app">
+
+      <q-layout view="hHh lpr fFf">
+
+
+        <!-- header -->
+        <!-- background orig design: #4b4f51; -->
+        <q-header class="q-py-none bg-dark" >
+
+          <q-toolbar class="items-bottom">
+            <span :style="'font-size: 61px;'" class="my-logo-font text-h6 text-white q-ml-xl text-weight-bolder"></span><span :style="'font-size: 31px;'" class="my-font text-h6 q-mr-md text-weight-light"></span>
+            <q-space></q-space>
+            <q-tabs no-caps q-pb-none >
+              <q-tab :style="[selected_tab == 't_0' ? {backgroundColor: bg_color} : {}]"
+                class="q-mr-sm q-pb-none q-my-none custom_tab" @click="scrollToElement('id_about');"
+                style="width:120px;min-height:50px !important;color: white" label="About" >
+              </q-tab>
+              <q-tab :style="[selected_tab == 't_1' ? {backgroundColor: bg_color} : {}]"
+                class="q-mr-sm q-pb-none custom_tab" @click="scrollToElement('id_webapps');"
+                style="width:120px;min-height:50px !important;color: white" label="Web apps" >
+              </q-tab>
+            </q-tabs>
+          </q-toolbar>
+        </q-header>
+
+
+        <q-page-container>
+          <!-- <router-view /> -->
+
+          <q-page>
+
+            <!-- Intro section -->
+            <div class="q-px-md bg-primary" >
+
+              <div class="q-px-xl q-pt-xl bg-primary" id="id_intro" >
+
+                <!-- Intro: Title -->
+                <div class="row justify-left" >
+                  <div class="col-md-1" ></div>
+
+                  <div class="q-pt-xl col-12 col-lg-6 col-md-9" >
+                    <span class="text-left text-white text-weight-bolder" style="font-size: 61px;">The NeuroWebLab
+                    </span>
+                  </div>
+
+                  <div class="col-md-2" ></div>
+                </div>
+
+                <!-- Intro: Subtitle -->
+                <div class="q-pb-md row justify-left">
+
+                  <div class="col-md-1"></div>
+                  
+                  <div class="q-py-sm col-12 col-lg-9 col-md-9">
+                    <!-- <span :style="'font-size: 61px;'" class="my-logo-font text-h6 text-white q-ml-xl text-weight-bolder">NeuroWebLab</span> -->
+                    <span class="text-center text-white text-h5 text-weight-light">Your portal for collaborative neuroscience.</span>
+
+                    <div class="q-pa-md q-gutter-sm">
+                    <q-img
+                      :src="url"
+                      spinner-color="white"
+                      style="max-width: 100%">
+                    </q-img>
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-2"></div>
+                </div>
+
+              </div>
+            </div>
+
+
+
+
+            <!-- About: Vision -->
+            <div class="q-px-md bg-primary" >
+              <div class="q-px-xl q-pt-sm bg-primary" id="id_about" >
+
+                <!-- Headline & section 1 -->
+                <div class="row justify-left" >
+                  <div class="col-md-1" ></div>
+
+                  <div class="q-pt-xl col-12 col-lg-9 col-md-9" >
+                    <h5 class="text-left text-white text-weight-bold" style="font-size: 21px !important;">Vision
+                    </h5>
+                    <span class="text-center text-white text-h6 text-weight-light">
+                      The NeuroWebLab provides real-time interactive Web tools to work collaboratively on public biomedical data, such as MRI and histology. <br/>
+                    </span>
+
+                    <!-- Headline & section 2 -->
+                    <h5 class="text-left text-white text-weight-bold" style="font-size: 21px !important;">The value of real-time collaboration
+                    </h5>
+                    <span class="text-center text-white text-h6 text-weight-light">
+                      Real-time interaction provides a largely unexplored methodology for neuroscientific collaboration. For several years we have been exploring different distributed collaboration paradigms, representing various ways in which neuroscientists could work together, both in the analysis of public data, and in the co-construction of new knowledge. Our aim is to go beyond the state of the art by allowing scientists to work at the same time on the same data, through the Web. Many of the challenges which may appear daunting to a single research team – even to a large one – could be solved much more efficiently, transparently and reproducibly by engaging the complete community. Our project builds a collaborative layer on top of existing initiatives: It turns the massive amounts of passively stored data into living matter for distributed, real-time collaboration. <br/>
+                    </span>
+                  </div>
+
+                  <div class="col-md-1" ></div>
+
+                </div>
+              </div>
+            </div>
+
+
+            <!-- Webapps -->
+            <div class="q-px-md bg-primary" >
+              <div class="q-px-xl q-pt-sm bg-primary" id="id_webapps" >
+  
+                <!-- first tool card: Brainspell -->
+                <div class="row">
+                  <div class="col-md-1" ></div>
+                  <div class="q-py-xl col-12 col-lg-10 col-md-10">
+                    <q-card inline @mouseover="hoverOver(1)" @mouseout="hoverOutTimeout(1)" style="border: none;background: #333;"
+                      class="text-left" flat bordered>
+  
+                      <q-card-section class="text-left">
+                        <div class="row">
+
+                            <div class="col-8 q-pl-md q-pr-lg">
+                              <div class="row">
+                                <div class="text-caption text-white q-mt-sm">
+                                  <a href="https://brainspell.org" style="color:white; text-decoration: none;" >https://brainspell.org</a>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div :class="about_heading_1" :style="'color: ' + about_heading_color_1"
+                                  class="about_heading_1 text-h6 text-white q-mt-sm q-mb-xs">
+                                  <a href="https://brainspell.org" style="color:white; text-decoration: none;">Brainspell. Collaborative annotation of the neuroimaging literature.
+                                    </a>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <a href="https://brainspell.org" style="color:white; text-decoration: none;">
+                                  <div class="text-grey-1 q-mt-sm" style="font-size: medium;">
+                                    Brainspell is a Web application for the collective annotation of neuroimaging literature. Neuroimaging articles often report standardised 3-D coordinates of brain activation related to different experimental conditions. Upon registering, users are able to edit these coordinate lists, add ontology term tags for cognitive domains and tasks represented, and up or down vote previous tags.  Brainspell’s interface is similar to that of a search engine, and allows users to enter text-based queries. The result is a 3-D representation of the brain regions most commonly reported in relation to the search query, as well as a relevance-sorted list of articles, each linked.
+                                  </div>
+                                </a>
+                              </div>
+                            </div>
+                            <!-- <div class="col-2 q-py-md q-pl-lg q-pr-md"> -->
+                            <div class="col-4 q-py-md q-px-md">
+                              <div class="row q-pb-xs">
+                                <!-- <a href="https://brainspell.org" target="_blank"> -->
+                                  <q-img style="height: 300px; width: 300px; align-items: flex-end;" src="https://raw.githubusercontent.com/r03ert0/brainspell/master/images/brainspell.png" >
+                                  </q-img>
+                                <!-- </a> -->
+                              </div>
+                              <!-- <div class="row q-py-xs">
+                                <a href="https://github.com/r03ert0/brainspell" target="_blank" style="color: #999999; text-decoration: none;">https://github.com/r03ert0/brainspell</a>
+                              </div> -->
+                            </div>
+
+                        </div>
+
+                      </q-card-section>
+
+                    </q-card>
+                  </div>
+                  <div class="col-md-1" ></div>
+                </div>
+
+
+                <!-- second tool card: BrainBox -->
+                <div class="row">
+                  <div class="col-md-1" ></div>
+                  <div class="q-py-md col-12 col-lg-10 col-md-10">
+                    <q-card inline @mouseover="hoverOver(1)" @mouseout="hoverOutTimeout(1)" style="border: none;background: #333;"
+                      class="text-left" flat bordered>
+
+                      <q-card-section class="text-left">
+                        <div class="row">
+
+                          <div class="col-8 q-px-md">
+                              <div class="row">
+                                <div class="text-caption text-white q-mt-sm">
+                                  <a href="https://brainbox.pasteur.fr" style="color:white; text-decoration: none;" >https://brainbox.pasteur.fr</a>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div :class="about_heading_1" :style="'color: ' + about_heading_color_1"
+                                  class="about_heading_1 text-h6 text-white q-mt-sm q-mb-xs">
+                                  <a href="https://brainbox.pasteur.fr" style="color:white; text-decoration: none;">BrainBox. A platform for real-time collaboration in neuroimaging.
+                                    </a>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <a href="https://brainbox.pasteur.fr" style="color:white; text-decoration: none;">
+                                  <div class="text-grey-1 q-mt-sm" style="font-size: medium;">
+                                    BrainBox is a tool for the collaborative curation and analysis of any brain neuroimaging dataset available through the Web. You can share, visualise and annotate MRI brain data in real-time, collaboratively. BrainBox provides the means to create a layer of collaborative annotation over all the available MRI data without having to rely on a centralised data repository or the necessity of having to install software. This manual annotation step is time-consuming but very important: on its correctness depends that the results of any analysis downstream will be sound and accurate. This is especially interesting for challenging datasets such as patient data (brain lesions, tumors, etc.), developmental data, and animal datasets from translational projects where extensive manual interventions are necessary as standard algorithms fail. Join us! Your contribution is invaluable!
+                                  </div>
+                                </a>
+                              </div>
+                            </div>
+                            <!-- <div class="col-4 q-py-md q-pl-lg q-pr-md"> -->
+                            <div class="col-4 q-py-md q-px-md">
+                              <div class="row q-pb-xs">
+                                  <q-img style="height: 300px;width:300px;" src="https://user-images.githubusercontent.com/6297454/32104270-96db0afa-bb1b-11e7-8911-786d420c308a.png" >
+                                  </q-img>
+                              </div>
+                              <!-- <div class="row q-py-xs">
+                                <a href="https://github.com/neuroanatomy/BrainBox" target="_blank" style="color: #999999; text-decoration: none;">https://github.com/neuroanatomy/BrainBox</a>
+                              </div> -->
+                            </div>
+
+                        </div>
+
+                      </q-card-section>
+
+                    </q-card>
+                  </div>
+                  <div class="col-md-1" ></div>
+                </div>
+
+
+                <!-- third tool card: MicroDraw -->
+                <div class="row">
+                  <div class="col-md-1" ></div>
+                  <div class="q-py-xl col-12 col-lg-10 col-md-10">
+                    <q-card inline @mouseover="hoverOver(1)" @mouseout="hoverOutTimeout(1)" style="border: none;background: #333;"
+                      class="text-left" flat bordered>
+
+                      <q-card-section class="text-left">
+                        <div class="row">
+
+                          <div class="col-8 q-px-md">
+                              <div class="row">
+                                <div class="text-caption text-white q-mt-sm">
+                                  <a href="https://microdraw.pasteur.fr" style="color:white; text-decoration: none;" >https://microdraw.pasteur.fr</a>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div :class="about_heading_1" :style="'color: ' + about_heading_color_1"
+                                  class="about_heading_1 text-h6 text-white q-mt-sm q-mb-xs">
+                                  <a href="https://brainbox.pasteur.fr" style="color:white; text-decoration: none;">MicroDraw. A platform for distributed collaboration on multi resolution histological data.
+                                  </a>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <a href="https://brainbox.pasteur.fr" style="color:white; text-decoration: none;">
+                                  <div class="text-grey-1 q-mt-sm" style="font-size: medium;">
+                                    MicroDraw is a Web tool for the visualisation and collaborative annotation of histological data. It provides fast access to ultra-high resolution data, independently of the size of each image. A set of vectorial editing tools allow users to delineate brain regions, create multi-scale, collaborative atlases, or to collaboratively annotate slice artefacts.
+                                  </div>
+                                </a>
+                              </div>
+                            </div>
+                            <!-- <div class="col-4 q-py-md q-pl-lg q-pr-md"> -->
+                            <div class="col-4 q-py-md q-px-md">
+                              <div class="row q-pb-xs">
+                                  <q-img style="height: 300px;width:300px;" src="https://user-images.githubusercontent.com/2310732/31443628-40b315ec-ae9a-11e7-9c2e-d133b5921687.png" >
+                                  </q-img>
+                              </div>
+                              <!-- <div class="row q-py-xs">
+                                <a href="https://github.com/neuroanatomy/microdraw" target="_blank" style="color: #999999; text-decoration: none;">https://github.com/neuroanatomy/microdraw</a>
+                              </div> -->
+                            </div>
+
+                        </div>
+
+                      </q-card-section>
+
+                    </q-card>
+                  </div>
+                  <div class="col-md-1" ></div>
+                </div>
+
+
+                <!-- <br />
+                <br /> -->
+              </div>
+            </div>
+
+
+
+            <!-- footer -->
+            <q-toolbar class="flex flex-center text-white text-center bg-dark" 
+              :style="'border-top: 1px solid ' + bg_color">
+              <div class="q-pa-sm q-py-md q-gutter-sm">
+                <q-btn round type="a" href="https://twitter.com/TheBrainWeb"
+                  :style="'background:'+ theme_color +'; color: white !important;'" icon="fab fa-twitter" >
+                </q-btn>
+                <q-btn round type="a" href="https://github.com/neuroanatomy/NeuroWebLab"
+                  :style="'background:'+ theme_color +'; color: white !important;'" icon="fab fa-github" >
+                </q-btn>
+                <!-- <q-btn round type="a" href="mailto:contact.brainweb@gmail.com"
+                  :style="'background:'+ theme_color +'; color: white !important;'" icon="email" >
+                </q-btn> -->
+                <q-btn round type="a" href="https://github.com/neuroanatomy/NeuroWebLab"
+                  :style="'background:'+ theme_color +'; color: white !important;'" glossy text-color="black"
+                  icon="fas fa-heart" >
+                  <q-tooltip content-class="bg-dark" color="theme_color" text-color="black">Give our repo a star</q-tooltip>
+                </q-btn>
+                <br/><br>
+                Made with &nbsp; ❤ <a target="_blank" href="http://neuroanatomy.github.io" style="color:white;text-decoration: none;">groupe de neuroanatomie appliquée et théorique</a>&nbsp; •&nbsp; CC BY 4.0 <br/>
+              </div>
+            </q-toolbar>
+  
+          </q-page>
+
+
+        </q-page-container>
+
+
+      </q-layout>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@^2.0.0/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quasar@1.15.8/dist/quasar.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@quasar/quasar-ui-qflashcard@1.0.1/dist/index.umd.min.js"></script>
+
+
+    <!-- #4b4f51 is grey with a touch blueish; theme_color: '#668fa6' blueish grey; same as background_style -->
+    <script>
+      const { getScrollTarget, setScrollPosition } = Quasar.scroll
+  
+      app = new Vue({
+        el: "#q-app",
+        data() {
+          return {
+            slide: 1,
+            review_slide: 'style',
+            selected_tab: 't_0',
+            team_slide: 1,
+            bg_color: '#4b4f51',
+            hover: false,
+            active: false,
+            right: false,
+            url: './images/Neuroweblab1.png',
+            theme_color: '#444444',
+            primary: 'red',
+            background_style: '#444444',
+            about_heading_1: [],
+            about_heading_2: [],
+            about_heading_3: [],
+            about_heading_color_1: '#4b4f51',
+            about_heading_color_2: '#424242',
+            about_heading_color_3: '#424242',
+          }
+        },
+        methods: {
+          scrollToElement(id) {
+            let el = document.getElementById(id)
+            const target = getScrollTarget(el)
+            const offset = el.offsetTop + 3
+            const duration = 900
+            setScrollPosition(target, offset, duration)
+          },
+          /* go back to main page from sub pages */
+          goTo(url){
+            window.location.href = url;
+          },
+          changeBgColor() {
+            this.theme_color = this.bg_color;
+            this.background_style = 'background-color:' + this.bg_color.split(')')[0] + ',0.7)';
+          },
+          hoverOver: function (index) {
+            this['about_heading_color_' + index] = this.theme_color;
+            this['about_heading_' + index] = ['animated', 'bounceIn'];
+          },
+          hoverOutTimeout: function (index) {
+            this['about_heading_color_' + index] = '#4b4f51';
+            setTimeout(() => {
+              this['about_heading_' + index] = [];
+            }, 1000);
+          },
+        }
+      });
+  </script>
+
+  </body>
+
+</html>

@@ -1,2 +1,4 @@
-# NeuroWebLab.github.io
-A collaborative open neuroscience lab on the web.
+# NeuroWebLab
+Your portal for collaborative neuroscience
+
+![](https://raw.githubusercontent.com/neuroanatomy/NeuroWebLab/main/images/Neuroweblab1.png)

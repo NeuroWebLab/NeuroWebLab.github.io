@@ -1,4 +1,6 @@
 # NeuroWebLab
 Your portal for collaborative neuroscience
 
-![](https://raw.githubusercontent.com/neuroanatomy/NeuroWebLab/main/images/Neuroweblab1.png)
+Come check out our vision [here](https://neuroweblab.github.io/).  
+
+<img src="./images/Neuroweblab1.png"></img>
